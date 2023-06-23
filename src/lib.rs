@@ -1,3 +1,4 @@
+#[macro_export()]
 macro_rules! sh {
     ($var:expr) => {
         let err = format!("Failed to execute {}", $var);

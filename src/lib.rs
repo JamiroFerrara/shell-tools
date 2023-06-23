@@ -7,7 +7,7 @@ macro_rules! sh {
         if output.status.success() {
             // Print the stdout if the command executed successfully
             let stdout = String::from_utf8_lossy(&output.stdout);
-            println!("Command output:\n{}", stdout);
+            println!("{}", stdout);
         } else {
             // Print the stderr if the command failed
             let stderr = String::from_utf8_lossy(&output.stderr);

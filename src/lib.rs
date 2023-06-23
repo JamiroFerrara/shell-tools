@@ -1,8 +1,14 @@
 #[macro_export()]
 macro_rules! sh {
-    ($var:expr) => {
+    ($var:expr, $var2:expr) => {
         let err = format!("Failed to execute {}", $var);
-        let output = Command::new("sh").arg("-c").arg($var).output().expect(&err);
+        let output = Command::new("sh")
+            .arg("-c")
+            .arg($var)
+            .path()
+            .current_dir($var2.clone())
+            .output()
+            .expect(&err);
 
         if output.status.success() {
             // Print the stdout if the command executed successfully

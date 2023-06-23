@@ -5,7 +5,6 @@ macro_rules! sh {
         let output = Command::new("sh")
             .arg("-c")
             .arg($var)
-            .path()
             .current_dir($var2.clone())
             .output()
             .expect(&err);
